@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>用户管理</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <div class="top">
+    <div class="top0">
+      <span style="display: block;float:left;margin-top:8px;margin-left: 5%;font-size: 25px;">
+        EYE&EAR管理平台
+      </span>
+      <a style="display: block;float:right;color:#ff5722;margin-top:10px;margin-right:3%;font-size: 22px;"
+        href="http://localhost:8000/b1/login">退出</a>
+      <a style="display:block;float:right;width:30px;height:30px;background:url(/images/1.png);background-size:100% 100%;margin-top:12px;margin-right:2%;"
+        href="http://localhost:8000/b1/login"></a>
+    </div>
+  </div>
+  <div class="content">
+    <div class="content0">
+      <div class="contentLeft">
+        <ul>
+          <li>统计</li>
+          <li>
+            <a href="http://localhost:8000/b1/user_analysis">
+              用户分析
+            </a>
+          </li>
+          <li>
+            <a href="http://localhost:8000/b1/order_analysis">
+              订单分析
+            </a>
+          </li>
+        </ul>
+        <ul>
+          <li>管理</li>
+          <li>
+            <a href="http://localhost:8000/b1/user_message">
+              用户管理
+            </a>
+          </li>
+          <li>
+						<a href="http://localhost:8000/b1/commodity_management">
+							票类管理
+						</a>
+					</li>
+					<li>
+						<a href="http://localhost:8000/b1/commodity_management_art">
+							艺术品管理
+						</a>
+					</li>
+          <li>
+            <a href="http://localhost:8000/b1/order_management">
+              订单管理
+            </a>
+          </li>
+          <li>
+						<a href="http://localhost:8000/b1/active">
+							树洞管理
+						</a>
+					</li>
+        </ul>
+        <ul>
+          <li>设置</li>
+          <li>
+            <a href="http://localhost:8000/b1/platform_management">
+              平台信息
+            </a>
+          </li>
+          <li>
+            <a href="http://localhost:8000/b1/user_management" style="color: red;">
+              账户权限
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="contentRight">
+        <div class="main">
+          <div class="user1">
+            <p style="color:#808080;padding-top: 15px;margin-left:10px;margin-top: 0;">账户管理</p>
+            <span style="margin-left:20px;font-weight:bold;">账户权限</span>
+          </div>
+          <div class="chazhao" style="margin-top: 10px;border-bottom: 1px solid #d4d4d4;">
+            <p style="padding-top:20px;padding-left:30px;display: inline-block;font-weight: bolder;">账户列表</p>
+            <p style="padding-top:20px;padding-left:30px;display: inline-block;font-size: 13px;color: blue;"><a
+                href="http://localhost:8000/b1/user_management/add" style="color: blue;cursor:pointer">新增账户</a></p>
+          </div>
+          <div class="userlist" style="height: auto;margin-top: 0;">
+            <p style="color:#808080;padding-top: 15px;margin-left:10px;margin-top: 0;">账户信息</p>
+            <hr style="width: 960px;margin:0 auto;
+                  background-color:#c4c2c2;border:none;height:2px;" />
+            <ul>
+              <li>用户名</li>
+              <li>角色</li>
+              <li>名字</li>
+              <li>手机号</li>
+              <li>状态</li>
+              <li>操作</li>
+            </ul>
+            <hr style="width: 960px;margin:0 auto;
+                  background-color:#c4c2c2;border:none;height:1px;" />
+            <div id="add">
+              <%for(var i=0; i < result.length; i++){%>
+              <ul class="order_message"
+                style="border-bottom: 1px solid #d4d4d4;width: 100%;height: 50px;padding-left: 0;margin-bottom: 0;">
+                <li><%=result[i].username%></li>
+                <li><%=result[i].is_user%></li>
+                <li><%=result[i].name%></li>
+                <li><%=result[i].tel%></li>
+                <li><%=result[i].state%></li>
+                <li>
+                    <span style="color: red;font-size: 12px;cursor:pointer;" id="del<%=i%>">删除</span>
+                    <span style="color: blue;font-size: 12px;cursor:pointer" id="change">修改</span>
+                </li>
+              </ul>
+              <%}%>
+              </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<script>
+  for (let index = 0; index < $('.order_message').length; index++) {
+      $("#del"+index).click(() => {
+      $.ajax({
+      	type: 'post',
+      	url: 'http://localhost:8000/b1/user_management/del',
+      	data: {
+      		username:$("#del"+index).parent().parent()[0].children[0].innerHTML
+      	},
+      	success: function (data) {
+      		if (data == "delete success") {
+      			window.alert("delete success");
+      			window.location = "http://localhost:8000/b1/user_management";
+      		} else if (data == "没有信息") {
+      			window.alert("没有信息");
+      			window.location = "http://localhost:8000/b1/user_management";
+      		}
+      	}
+      })
+    })
+  }
+  
+  $(".order_message #change").click(() => {
+		window.location = "http://localhost:8000/b1/user_management/change"
+	})
+</script>
+</html>

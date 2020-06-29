@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>订单分析</title>
+	<link rel='stylesheet' href='/stylesheets/index.css' />
+</head>
+
+<body>
+	<div class="top">
+		<div class="top0">
+			<span style="display: block;float:left;margin-top:8px;margin-left: 5%;font-size: 25px;">
+				EYE&EAR管理平台
+			</span>
+			<a style="display: block;float:right;color:#ff5722;margin-top:10px;margin-right:3%;font-size: 22px;" href="http://localhost:8000/b1/login">退出</a>
+			<a
+				style="display:block;float:right;width:30px;height:30px;background:url(/images/1.png);background-size:100% 100%;margin-top:12px;margin-right:2%;" href="http://localhost:8000/b1/login"></a>
+		</div>
+	</div>
+	<div class="content">
+		<div class="content0">
+			<div class="contentLeft">
+				<ul>
+					<li>统计</li>
+					<li>
+						<a href="http://localhost:8000/b1/user_analysis">
+							用户分析
+						</a>
+					</li>
+					<li>
+						<a href="http://localhost:8000/b1/order_analysis" style="color: red;">
+							订单分析
+						</a>
+					</li>
+				</ul>
+				<ul>
+					<li>管理</li>
+					<li>
+						<a href="http://localhost:8000/b1/user_message">
+							用户管理
+						</a>
+					</li>
+					<li>
+						<a href="http://localhost:8000/b1/commodity_management">
+							票类管理
+						</a>
+					</li>
+					<li>
+						<a href="http://localhost:8000/b1/commodity_management_art">
+							艺术品管理
+						</a>
+					</li>
+					<li>
+						<a href="http://localhost:8000/b1/order_management">
+							订单管理
+						</a>
+					</li>
+					<li>
+						<a href="http://localhost:8000/b1/active">
+							树洞管理
+						</a>
+					</li>
+				</ul>
+				<ul>
+					<li>设置</li>
+					<li>
+						<a href="http://localhost:8000/b1/platform_management">
+							平台信息
+						</a>
+					</li>
+					<li>
+						<a href="http://localhost:8000/b1/user_management">
+							账户权限
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="contentRight">
+				<div style="width: 100%;
+					height: 70px;
+					border-bottom: 1px solid #d4d4d4;">
+					<p style="margin-left: 15px;
+						font-size: 16px;
+						font-weight: 400;
+						color: #b9b9b9;">
+						订单分析
+					</p>
+					<p style="margin-left: 50px;
+						font-size: 14px;
+						font-weight: bolder;">
+						订单数据
+					</p>
+				</div>
+				<div style="width: 100%;
+					height: 30px;">
+					<p style="margin-left: 15px;
+						margin-top: 25px;
+						font-size: 12px;
+						font-weight: 400;
+						color: #b9b9b9;">
+						本页根据后台数据计算，是实时数据
+					</p>
+
+				</div>
+				<div style="width: 100%;border: 1px solid #d4d4d4;margin:10px 0 10px 0;">
+					<div style="width: 100%;
+						height: 60px;
+						background-color:#b9b9b9">
+						<p style="float: left;font-size: 14px;padding-top: 20px;padding-left: 15px;color: #424242;margin: 0;">今日订单指标
+						</p>
+						<button class="receive" onclick="Receive(0)"
+							style="float: right;width: 23px;height: 20px;margin-right: 30px;margin-top: 25px;background-color:#383838;border: 1px solid #383838;border-radius: 10px;color:#fff">∧</button>
+					</div>
+					<ul class="visit"
+						style="width: 100%;height: 220px;background-color:#fff;padding-left: 0;border:none;margin: 0;padding-top: 70px;">
+						<li
+							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-right: 1px solid #d4d4d4;">
+							<p style="margin-top: 0;font-size: 14px;">新增订单数</p>
+							<p style="font-size: 20px;"><%= today %></p>
+						</li>
+						<li style="text-align: center;display:inline-block;width: 320px;height: 123px;">
+							<p style="margin-top: 0;font-size: 14px;">已支付数</p>
+							<p style="font-size: 20px;"><%= today_state + yesterday_state + seven_state + fifteen_state + thirty_state%></p>
+						</li>
+						<li
+							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-left: 1px solid #d4d4d4;">
+							<p style="margin-top: 0;font-size: 14px;">累计金额</p>
+							<p style="font-size: 20px;"><%= today_money + yesterday_money + seven_money + fifteen_money + thirty_money%></p>
+						</li>
+					</ul>
+				</div>
+				<div style="width: 100%;border: 1px solid #d4d4d4;margin:10px 0 10px 0;">
+					<div style="width: 100%;
+						height: 60px;
+						background-color:#b9b9b9">
+						<p style="float: left;font-size: 14px;padding-top: 20px;padding-left: 15px;color: #424242;margin: 0;">昨日订单指标
+						</p>
+						<button class="receive" onclick="Receive(1)"
+							style="float: right;width: 23px;height: 20px;margin-right: 30px;margin-top: 25px;background-color:#383838;border: 1px solid #383838;border-radius: 10px;color:#fff">∨</button>
+					</div>
+					<ul class="visit"
+						style="display:none;width: 100%;height: 220px;background-color:#fff;padding-left: 0;border:none;margin: 0;padding-top: 70px;">
+						<li
+							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-right: 1px solid #d4d4d4;">
+							<p style="margin-top: 0;font-size: 14px;">新增订单数</p>
+							<p style="font-size: 20px;"><%= yesterday %></p>
+						</li>
+						<li style="text-align: center;display:inline-block;width: 320px;height: 123px;">
+							<p style="margin-top: 0;font-size: 14px;">已支付数</p>
+							<p style="font-size: 20px;"><%= yesterday_state + seven_state + fifteen_state + thirty_state%></p>
+						</li>
+						<li
+							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-left: 1px solid #d4d4d4;">
+							<p style="margin-top: 0;font-size: 14px;">累计金额</p>
+							<p style="font-size: 20px;"><%= yesterday_money + seven_money + fifteen_money + thirty_money%></p>
+						</li>
+					</ul>
+				</div>
+				<div style="width: 100%;border: 1px solid #d4d4d4;margin:10px 0 10px 0;">
+					<div style="width: 100%;
+						height: 60px;
+						background-color:#b9b9b9">
+						<p style="float: left;font-size: 14px;padding-top: 20px;padding-left: 15px;color: #424242;margin: 0;">7日订单指标
+						</p>
+						<button class="receive" onclick="Receive(2)"
+							style="float: right;width: 23px;height: 20px;margin-right: 30px;margin-top: 25px;background-color:#383838;border: 1px solid #383838;border-radius: 10px;color:#fff">∨</button>
+					</div>
+					<ul class="visit"
+						style="display:none;width: 100%;height: 220px;background-color:#fff;padding-left: 0;border:none;margin: 0;padding-top: 70px;">
+						<li
+							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-right: 1px solid #d4d4d4;">
+							<p style="margin-top: 0;font-size: 14px;">新增订单数</p>
+							<p style="font-size: 20px;"><%= seven %></p>
+						</li>
+						<li style="text-align: center;display:inline-block;width: 320px;height: 123px;">
+							<p style="margin-top: 0;font-size: 14px;">已支付数</p>
+							<p style="font-size: 20px;"><%= seven_state + fifteen_state + thirty_state%></p>
+						</li>
+						<li
+							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-left: 1px solid #d4d4d4;">
+							<p style="margin-top: 0;font-size: 14px;">累计金额</p>
+							<p style="font-size: 20px;"><%= seven_money + fifteen_money + thirty_money%></p>
+						</li>
+					</ul>
+				</div>
+				<div style="width: 100%;border: 1px solid #d4d4d4;margin:10px 0 10px 0;">
+					<div style="width: 100%;
+						height: 60px;
+						background-color:#b9b9b9">
+						<p style="float: left;font-size: 14px;padding-top: 20px;padding-left: 15px;color: #424242;margin: 0;">
+							15日订单指标</p>
+						<button class="receive" onclick="Receive(3)"
+							style="float: right;width: 23px;height: 20px;margin-right: 30px;margin-top: 25px;background-color:#383838;border: 1px solid #383838;border-radius: 10px;color:#fff">∨</button>
+					</div>
+					<ul class="visit"
+						style="display:none;width: 100%;height: 220px;background-color:#fff;padding-left: 0;border:none;margin: 0;padding-top: 70px;">
+						<li
+							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-right: 1px solid #d4d4d4;">
+							<p style="margin-top: 0;font-size: 14px;">新增订单数</p>
+							<p style="font-size: 20px;"><%= fifteen %></p>
+						</li>
+						<li style="text-align: center;display:inline-block;width: 320px;height: 123px;">
+							<p style="margin-top: 0;font-size: 14px;">已支付数</p>
+							<p style="font-size: 20px;"><%= fifteen_state + thirty_state%></p>
+						</li>
+						<li
+							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-left: 1px solid #d4d4d4;">
+							<p style="margin-top: 0;font-size: 14px;">累计注册</p>
+							<p style="font-size: 20px;"><%= fifteen_money + thirty_money%></p>
+						</li>
+					</ul>
+				</div>
+				<div style="width: 100%;border: 1px solid #d4d4d4;margin:10px 0 10px 0;">
+					<div style="width: 100%;
+						height: 60px;
+						background-color:#b9b9b9">
+						<p style="float: left;font-size: 14px;padding-top: 20px;padding-left: 15px;color: #424242;margin: 0;">
+							30日订单指标</p>
+						<button class="receive" onclick="Receive(4)"
+							style="float: right;width: 23px;height: 20px;margin-right: 30px;margin-top: 25px;background-color:#383838;border: 1px solid #383838;border-radius: 10px;color:#fff">∨</button>
+					</div>
+					<ul class="visit"
+						style="display:none;width: 100%;height: 220px;background-color:#fff;padding-left: 0;border:none;margin: 0;padding-top: 70px;">
+						<li
+							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-right: 1px solid #d4d4d4;">
+							<p style="margin-top: 0;font-size: 14px;">新增订单数</p>
+							<p style="font-size: 20px;"><%= thirty %></p>
+						</li>
+						<li style="text-align: center;display:inline-block;width: 320px;height: 123px;">
+							<p style="margin-top: 0;font-size: 14px;">已支付数</p>
+							<p style="font-size: 20px;"><%= thirty_state%></p>
+						</li>
+						<li
+							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-left: 1px solid #d4d4d4;">
+							<p style="margin-top: 0;font-size: 14px;">累计金额</p>
+							<p style="font-size: 20px;"><%= thirty_money%></p>
+						</li>
+					</ul>
+				</div>
+				<div style="width: 100%;border: 1px solid #d4d4d4;margin:10px 0 10px 0;">
+					<div style="width: 100%;
+						height: 60px;
+						background-color:#b9b9b9">
+						<p
+							style="float: left;font-size: 14px;padding-left: 15px;color: #424242;margin: 0;">
+							<input id="bDate" oninput="Show()" style="border:none;background-color: #b9b9b9;"
+								type="date">
+							<button id="date" style="background: rgb(236, 72, 72);  margin-top:20px;
+              border-radius: 10px;color:white;height:30px;width:70px;border-width: 1px;">确定</button>
+						</p>
+						<p
+							style="float: right;width: 50px;height: 20px;margin-right: 30px;margin-top:20px;border: 1px solid #d4d4d4;border-radius: 10px;font-weight: bolder;color:rgb(43, 139, 204);font-size: 12px;">
+							打印表格</p>
+					</div>
+					<ul id="context"
+						style="display:none;width: 100%;height: 120px;background-color:#fff;padding-left: 0;border:none;margin: 0;padding-top: 70px;">
+						<li
+							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-right: 1px solid #d4d4d4;">
+							<p style="margin-top: 0;font-size: 14px;">新增订单数</p>
+							<p id="order_num" style="font-size: 20px;"></p>
+						</li>
+						<li style="text-align: center;display:inline-block;width: 320px;height: 123px;">
+							<p style="margin-top: 0;font-size: 14px;">已支付数</p>
+							<p id="order_state" style="font-size: 20px;"></p>
+						</li>
+						<li
+							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-left: 1px solid #d4d4d4;">
+							<p style="margin-top: 0;font-size: 14px;">累计金额</p>
+							<p id="order_money" style="font-size: 20px;"></p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+	function Receive(index) {
+		var receive = document.getElementsByClassName('receive');
+		var visit = document.getElementsByClassName('visit');
+		if (receive[index].innerHTML == '∧') {
+			receive[index].innerHTML = '∨'
+			visit[index].style.display = 'none';
+		} else {
+			receive[index].innerHTML = '∧'
+			visit[index].style.display = 'block';
+		}
+	}
+
+	function Show() {
+		var date = document.getElementById('date');
+		var context = document.getElementById('context');
+		context.style.display = 'block'
+	}
+	$("#date").click(function () {
+		$.ajax({
+			type: 'post',
+			url: "http://localhost:8000/b1/order_analysis/date",
+			data: {
+				date: $("#bDate").val()
+			},
+			success: function (data) {
+				$("#order_num").text(data.numStr);
+				$("#order_money").text(data.moneyStr);
+				$("#order_state").text(data.stateStr);
+			}
+		})
+	})
+</script>
+
+</html>

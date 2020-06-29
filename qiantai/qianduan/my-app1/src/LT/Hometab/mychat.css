@@ -1,0 +1,7 @@
+.chat-input-wrapper{
+    position:fixed;
+    bottom:0px;
+} 
+.message-item .message-item-content{
+    background-color:pink;
+}

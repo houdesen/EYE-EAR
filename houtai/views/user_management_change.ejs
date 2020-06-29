@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>修改用户</title>
+	<link rel='stylesheet' href='/stylesheets/zhanghu.css' />
+</head>
+
+<body>
+	<div class="top">
+		<div class="top0">
+			<span style="display: block;float:left;margin-top:8px;margin-left: 5%;font-size: 25px;">
+				EYE&EAR管理平台
+			</span>
+			<a style="display: block;float:right;color:#ff5722;margin-top:10px;margin-right:3%;font-size: 22px;"
+				href="http://localhost:8000/b1/login">退出</a>
+			<a style="display:block;float:right;width:30px;height:30px;background:url(/images/1.png);background-size:100% 100%;margin-top:12px;margin-right:2%;"
+				href="http://localhost:8000/b1/login"></a>
+		</div>
+	</div>
+	<div class="content">
+		<div class="content0">
+			<div class="contentLeft">
+				<ul>
+					<li>统计</li>
+					<li>
+						<a href="http://localhost:8000/b1/user_analysis">
+							用户分析
+						</a>
+					</li>
+					<li>
+						<a href="http://localhost:8000/b1/order_analysis">
+							订单分析
+						</a>
+					</li>
+				</ul>
+				<ul>
+					<li>管理</li>
+					<li>
+						<a href="http://localhost:8000/b1/user_message">
+							用户管理
+						</a>
+					</li>
+					<li>
+						<a href="http://localhost:8000/b1/commodity_management">
+							票类管理
+						</a>
+					</li>
+					<li>
+						<a href="http://localhost:8000/b1/commodity_management_art">
+							艺术品管理
+						</a>
+					</li>
+					<li>
+						<a href="http://localhost:8000/b1/order_management">
+							订单管理
+						</a>
+					</li>
+					<li>
+						<a href="http://localhost:8000/b1/active">
+							树洞管理
+						</a>
+					</li>
+				</ul>
+				<ul>
+					<li>设置</li>
+					<li>
+						<a href="http://localhost:8000/b1/platform_management">
+							平台信息
+						</a>
+					</li>
+					<li>
+						<a href="http://localhost:8000/b1/user_management" style="color: red;">
+							账户权限
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="contentRight">
+				<div class="user1">
+					<p style="color:#808080;padding-top: 15px;margin-left:10px;">账户管理</p>
+					<hr style="width: 960px;margin:0 auto;
+                  background-color:#c4c2c2;border:none;height:2px;" />
+					<p style="margin-left:20px;font-weight:bold;margin-top:10px;"><a
+							href="http://localhost:8000/b1/user_management/add">新增账户</a></p>
+					<!-- <span style="margin-left:20px;font-weight:bold;margin-top:10px;">新增账户</span> -->
+				</div>
+				<div class="xiangqing" style="padding-bottom: 50px;">
+					<div class="shuru">
+						<p style="padding-top: 10px;padding-left:40px;display: inline-block;margin-right:2px;"> 账户名称：
+						</p>
+						<input id="username" name="username" type="text" placeholder="请输入账户名称">
+					</div>
+					<div class="shuru">
+						<p style="padding-top: 10px;padding-left:40px;display: inline-block;margin-right:16px;"> 原密码：
+						</p>
+						<input id="old_password" name="old_password" type="text" placeholder="请输入账户密码">
+					</div>
+					<div class="shuru">
+						<p style="padding-top: 10px;padding-left:40px;display: inline-block;margin-right:15px;"> 新密码：
+						</p>
+						<input id="new_password" name="new_password" type="text" placeholder="请再次输入账户密码">
+					</div>
+					<div class="shuru">
+						<p style="padding-top: 10px;padding-left:40px;display: inline-block;"> 联系姓名：</p>
+						<input id="name" name="name" type="text" placeholder="请输入开户者真实姓名">
+					</div>
+					<div class="shuru">
+						<p style="padding-top: 10px;padding-left:40px;display: inline-block;"> 联系方式：</p>
+						<input id="tel" name="tel" type="text" placeholder="XXXXXXXXXXX">
+					</div>
+					<div class="shuru">
+						<p style="padding-top: 10px;padding-left:40px;display: inline-block;">账户角色： </p>
+						<input type="text" placeholder="-选择账户角色" list="browsers" id="is_user" name="is_user">
+						<datalist id="browsers">
+							<option value="管理员">
+							<option value="企业">
+						</datalist>
+					</div>
+				</div>
+				<button style=" position:absolute;
+                left:500px;" id="btn">提交</button>
+				<button style=" position:absolute;
+                left:700px;" id="cancel">取消</button>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<script>
+	$("#cancel").click(() => {
+		window.location = "http://localhost:8000/b1/user_management"
+	})
+	$("#btn").click(() => {
+		$.ajax({
+			type: 'post',
+			url: 'http://localhost:8000/b1/user_management/change/change',
+			data: {
+				username: $("#username").val(),
+				old_password: $("#old_password").val(),
+				new_password: $("#new_password").val(),
+				name: $("#name").val(),
+				tel: $("#tel").val(),
+				is_user: $("#is_user").val(),
+			},
+			success: function (data) {
+				if (data == "change success") {
+					window.alert("change success");
+					window.location = "http://localhost:8000/b1/user_management";
+				} else if (data == "密码输入错误") {
+					window.alert("密码验证错误，不可修改");
+					window.location = "http://localhost:8000/b1/user_management/change";
+				}
+			}
+		})
+	})
+</script>
+
+</html>

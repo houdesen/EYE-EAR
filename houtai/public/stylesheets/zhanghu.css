@@ -1,0 +1,96 @@
+  
+  body{
+    margin:0;
+    background: url(../images/2.png);
+  }
+  a{
+    text-decoration:none;
+    color: black;
+  }
+  ul li{
+    list-style: none;
+  }
+  .top{
+    height: 50px;
+    width:100%;
+  }
+  .top0{
+    width:1200px;
+    height:50px;
+    margin:0 auto;
+    background: #f8f8f8;
+  }
+  .content{
+    margin-top:20px;
+    width:100%;
+  }
+  .content0{
+    width:1200px;
+    margin:0 auto;
+    background: #f8f8f8;
+  }
+  .contentLeft{
+    width: 200px;
+    height: 600px;
+    background: #f8f8f8;
+    float: left;
+  }
+  .contentLeft ul{
+    border-bottom:2px solid rgb(165, 160, 160);
+  }
+  .contentLeft ul li{
+    width:100%;
+    line-height:45px;
+  }
+  .contentLeft ul li:first-child{
+    font-size: 20px;
+  }
+  .contentLeft ul a:hover{
+    color:red;
+}
+  .main{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top:20px;
+    width:100%;
+    height:600px;
+  
+  }
+  .contentRight{
+    /* margin-left:20px; */
+    float:right;
+    width: 980px;
+  }
+  .user1{
+    width:100%;
+    height:100px;
+    background-color: white;
+  }
+  .xiangqing{
+    width:100%;
+    height:375px;
+    background-color: white;
+  }
+  .shuru{
+      width:100%;
+      height:40px;
+      font-size:15px;
+      margin-top:20px;
+      position: relative;
+  }  
+  .shuru input{
+      height:35px;
+      width:200px;
+      margin-top:30px;
+  }
+  button{
+      width:150px;
+      color:white;
+      height:35px;
+      margin-top:30px;
+      background-color:#ff5722;
+      border-radius: 10px;
+  }
+button:hover{
+  background-color: #ff4208;
+}

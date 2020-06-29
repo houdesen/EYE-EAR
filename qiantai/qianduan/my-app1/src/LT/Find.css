@@ -1,0 +1,54 @@
+    .find {
+        background-color: #fff;
+        color: #bbb;
+        text-align: center;
+        height: 300px;
+        line-height: 30px;
+        width: 70%;
+        margin: 5% auto;
+        border: 1px solid #cbcbcb;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px 3px #cbcbcb;
+      }
+      .find .img{
+        margin: 0 auto;
+        margin-top: 10%;
+        border-radius: 30px;
+        width: 60px;
+        height: 60px;
+        /* background: red; */
+      }
+      .form{
+        margin-top: 10%;
+      }
+      form input{
+        width: 75%;
+        height: 35px;
+        border-radius: 15px;
+        padding-left:10px;
+      }
+      .button {
+        margin-top: 20px;
+        margin-right: 35px;
+      }
+      .placeholder .form span{
+        text-align: left;
+      }
+      ul{
+        border:none;
+      }
+      ul li{
+        border:none;
+        float: left;
+        margin-left: 50px;
+      }
+      .tip {
+        height: 10px;
+        width: 75%;
+        margin-top: -10px;
+        line-height: 30px;
+        margin-left: 35px;
+        text-align: left;
+        color: red;
+        font-size: xx-small;
+      }

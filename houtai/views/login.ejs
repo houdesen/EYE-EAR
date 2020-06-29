@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>login</title>
+    <style>
+        .loginform{
+            margin-top: 8%;
+        }
+        .myform{
+            width: 600px;
+            margin:0 auto;
+        }
+        .login_p{
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: #606060;
+        }
+        #username,#pwd,#login,#is_user{
+            margin:0 auto;
+            margin-top: 20px;
+            width: 300px;
+            height: 25px;
+            display: block;
+            border: 1px solid #d4d4d4;
+            border-radius: 5px;
+        }
+        #is_user{
+            width: 300px;
+            height: 28px;
+            color: #696767;
+        }
+        #login{
+            height: 28px;
+            background-color: #ff0000;
+            color: #fff;
+            border: 1px solid #ff0000;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 100%;height: 100%;">
+        <div class="loginform">
+            <div style="width:100px;height:100px;background-image:url('/images/6.jpg');background-size: 110% 100%;margin: auto auto;"></div>
+            <p class="login_p">EYE&EAR管理平台</p>
+            <div class="myform">
+                <select id="is_user">
+                    <option value="管理员">管理员</option>
+                    <option value="企业">企业</option>
+                </select>
+                <input type="text" autocomplete="off" placeholder="帐号"   name="username" id="username" />
+                
+                <input type="password" autocomplete="off" placeholder="密码"  name="password" id="pwd"/>
+            
+                <button id="login"><span>登录</span></button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<script>
+    $("#login").click(function() {
+
+        $.ajax({
+            type: "post",
+            url: "http://localhost:8000/b1/login/login",
+            data: {is_user: $("#is_user").val(),username: $("#username").val(), password: $("#pwd").val()},
+            success: function(data) {
+                if(data == 'success') {
+                    window.alert('登陆成功')
+                    window.location = "http://localhost:8000/b1/user_analysis";
+                }else if(data == '用户名，密码为空'){
+                    window.alert('用户名，密码不为空')
+                }else if(data == '用户名错误'){
+                    window.alert(data)
+                }else if(data == '密码错误'){
+                    window.alert(data)
+                }else{
+                    window.alert('登录失败')
+                }
+            }
+        })
+    })
+</script>
+</html>

@@ -1,0 +1,85 @@
+body{
+    margin:0;
+    background: url(../images/2.png);
+}
+ul li{
+    list-style: none;
+}
+.top{
+    height: 50px;
+    width:100%;
+}
+.top0{
+    width:1200px;
+    height:50px;
+    margin:0 auto;
+    background: #f8f8f8;
+}
+.content{
+    margin-top:20px;
+    width:100%;
+}
+.content0{
+    width:1200px;
+    margin:0 auto;
+    background: #f8f8f8;
+}
+.contentLeft{
+    width: 200px;
+    height: 500px;
+    background: #f8f8f8;
+    float: left;
+}
+ul{
+    border-bottom:2px solid rgb(165, 160, 160);
+}
+ul li{
+    width:100%;
+    line-height:45px;
+}
+ul li:first-child{
+    font-size: 20px;
+}
+ul a:hover{
+    background: #ff5722;
+    color:white;
+}
+.contentRight{
+    width: 980px;
+    float: right;
+}
+.right2{
+    width: 980px;
+    height:140px;
+    background: #f8f8f8;
+    float: left;
+    margin-bottom: 30px;
+}
+.right21{
+    width: 980px;
+    height:50px;
+    background: #d3d2d2;
+    float: left;
+}
+.right22{
+    width: 940px;
+    height:50px;
+    background: #f8f8f8;
+    float: left;
+    padding:20px 20px;
+}
+.rightb{
+    width: 80px;
+    height:35px;
+    border-radius: 5px;
+    background: #ff5722;
+    color: aliceblue;
+    border:0;
+}
+input{
+    height:32px;
+    width:220px;
+    border-radius:10px;
+    border:0.5px solid #dfdcdc;
+    margin-right:10%;
+}

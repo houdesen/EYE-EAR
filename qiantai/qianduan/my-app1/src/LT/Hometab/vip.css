@@ -1,0 +1,165 @@
+.VIP {
+text-align: center;
+}
+
+.VIP-logo {
+height: 40vmin;
+}
+
+.VIP-header {
+background-color: #282c34;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+font-size: calc(10px + 2vmin);
+color: white;
+}
+
+.VIP-link {
+color: #09d3ac;
+}
+  
+@font-face {font-family: "iconfont";
+    src: url('//at.alicdn.com/t/font_1507565_3ipy24m7rf2.eot?t=1574755117798'); /* IE9 */
+    src: url('//at.alicdn.com/t/font_1507565_3ipy24m7rf2.eot?t=1574755117798#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('data:application/x-font-woff2;charset=utf-8;base64,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') format('woff2'),
+    url('//at.alicdn.com/t/font_1507565_3ipy24m7rf2.woff?t=1574755117798') format('woff'),
+    url('//at.alicdn.com/t/font_1507565_3ipy24m7rf2.ttf?t=1574755117798') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+    url('//at.alicdn.com/t/font_1507565_3ipy24m7rf2.svg?t=1574755117798#iconfont') format('svg'); /* iOS 4.1- */
+  }
+  
+  .iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-60:before {
+    content: "\e647";
+  }
+  
+  .icon-yifu:before {
+    content: "\e608";
+  }
+  
+  .icon-linggan:before {
+    content: "\e628";
+  }
+  
+  .icon-fenlei:before {
+    content: "\e605";
+  }
+  
+  .icon-huiyuan:before {
+    content: "\e636";
+  }
+  
+  .icon-hanbao:before {
+    content: "\e621";
+  }
+  
+  .icon-huiyuan-:before {
+    content: "\e604";
+  }
+  
+  .icon-gouwuche:before {
+    content: "\e6f2";
+  }
+  
+  .icon-zu:before {
+    content: "\e613";
+  }
+  
+  .icon-wodehezi:before {
+    content: "\e631";
+  }
+  
+  .icon-chongzhi:before {
+    content: "\e60b";
+  }
+  
+
+.Vheader{
+    width: 100%;
+    height:150px;
+    background-color: #d9cbb1;
+}
+.Vmessage{
+    width:40%;
+    height: 150px;
+    margin:0 auto;
+    padding-top:15px;
+}
+#Vtou{
+   
+    display: block;
+    margin:0 auto;
+}
+#Vname{
+    display: block;
+    text-align: center;
+    margin:0;
+}
+#Vdevelop{
+    display: block;
+    margin:0;
+    float: left;
+}
+#Vgrade{
+    display: block;
+    margin:0;
+    float:right;
+}
+.Vbody{
+    height:150px;
+    width: 100%;
+    /* background: cornsilk; */
+    border-bottom: 1px solid rgb(182, 174, 174);
+}
+.Vb1{
+    width: 100%;
+    height:35px;
+    background-color: #d9cbb1;
+    border-top: 1px solid rgb(182, 174, 174);
+    border-bottom: 1px solid rgb(182, 174, 174);
+    text-align: center;
+    line-clamp: 35px;
+    
+}
+.Vb1 p{
+    margin:0;
+    font-size: 16px;
+    padding-left:10px;
+    padding-top:3px;
+    color: rgb(53, 53, 51);
+}
+.Vb2{
+  text-align: center;
+    width: 80%;
+    height:25px;
+}
+.Vb2 p{
+    
+    font-size: 16px;
+    color: rgb(65, 65, 64);
+    
+    padding-top:3px;
+
+}
+
+.Vbottom{
+    width:100%;
+    height:265px;
+    background-color: #d9cbb1;
+
+}
+#Vp{
+    margin-top:10px;
+    width: 100%;
+    height:30px;
+    text-align: center;
+}

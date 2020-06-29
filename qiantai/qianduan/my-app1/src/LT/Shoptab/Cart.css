@@ -1,0 +1,125 @@
+.Ctop{
+    height:40px;
+    width: 100%;
+    background: #8794a8;
+}
+.Cb1{
+    width: 100%;
+    height: fit-content;
+}
+.Cb2{
+    width: 100%;
+    height: fit-content;
+    background: #fff;
+
+}
+.Cb2 p{
+    font-size:18px;
+    display: inline-block;
+    width: 100%;
+    margin:10px 5px;
+    /* border-top:1px solid rgb(211, 208, 208); */
+}
+
+.container {
+	text-align: center;
+    background-color: #faf6f6;
+    margin:0;
+	padding:0;
+	height: fit-content;
+	border-radius: 5px;
+}
+
+h3 {
+	display: inline-block;
+	margin-left: 50px;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+input[type="text"] {
+	line-height: 40px;
+	float: right;
+	width: 80%;
+	border-radius: 5px;
+	border: none;
+	font-size: 16px;
+	box-sizing: border-box;
+	padding: 0 5px;
+	border: 1px #ccc solid;
+	outline: none;
+}
+
+input[type="button"] {
+	border: none;
+	background-color: rgb(235, 32, 17);
+	height: 40px;
+	width: 110px;
+	font-size: 18px;
+	color: #fff;
+	border-radius: 5px;
+	float: right;
+}
+
+ul {
+	text-align: left;
+    margin: 0;
+    padding:0;
+	border-radius: 5px;
+	border: 1px #bbb solid;
+}
+
+ul li {
+	list-style: none;
+	line-height: 40px;
+	border-bottom: 1px #bbb solid;
+	padding: 10px 10px;
+}
+
+ul li:last-child{
+    display: block;
+    border:none;
+    width: 90%;
+}
+#wen{
+    display: inline-block;
+    font-size: 18px;
+	margin-left:15px;
+	padding-top: 10px;
+}
+
+.delete-btn {
+	float: right;
+	cursor: pointer;
+    display: block;
+    font-size: 15px;
+    margin:0;
+}
+
+.check-btn {
+	width: 12px;
+    height: 12px;
+	display: inline-block;
+	border: 1px #ccc solid;
+	border-style: outset;
+	border-radius: 50%;
+	margin-right: 20px;
+	margin-top:13px;
+	cursor: pointer;
+}
+
+input[type="checkbox"] {
+	border: 0;
+	color: #fff;
+	background-color: rgb(240, 14, 33);
+}
+
+.Cbottom{
+    display: block;
+	width: 100%;
+	text-align:center;
+}
+#Cimg{
+	height: 200px;
+}

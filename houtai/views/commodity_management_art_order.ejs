@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>艺术品详情</title>
+	<link rel='stylesheet' href='/stylesheets/list.css' />
+</head>
+
+<body>
+	<div class="top">
+		<div class="top0">
+			<span style="display: block;float:left;margin-top:8px;margin-left: 5%;font-size: 25px;">
+				EYE&EAR管理平台
+			</span>
+			<a style="display: block;float:right;color:#ff5722;margin-top:10px;margin-right:3%;font-size: 22px;"
+				href="http://localhost:8000/b1/login">退出</a>
+			<a style="display:block;float:right;width:30px;height:30px;background:url(/images/1.png);background-size:100% 100%;margin-top:12px;margin-right:2%;"
+				href="http://localhost:8000/b1/login"></a>
+		</div>
+	</div>
+	<div class="content">
+		<div class="content0">
+			<div class="contentLeft">
+				<ul>
+					<li>统计</li>
+					<li>
+						<a href="http://localhost:8000/b1/user_analysis">
+							用户分析
+						</a>
+					</li>
+					<li>
+						<a href="http://localhost:8000/b1/order_analysis">
+							订单分析
+						</a>
+					</li>
+				</ul>
+				<ul>
+					<li>管理</li>
+					<li>
+						<a href="http://localhost:8000/b1/user_message">
+							用户管理
+						</a>
+					</li>
+					<li>
+						<a href="http://localhost:8000/b1/commodity_management">
+							票类管理
+						</a>
+					</li>
+					<li>
+						<a href="http://localhost:8000/b1/commodity_management_art" style="color: red;">
+							艺术品管理
+						</a>
+					</li>
+					<li>
+						<a href="http://localhost:8000/b1/order_management">
+							订单管理
+						</a>
+					</li>
+					<li>
+						<a href="http://localhost:8000/b1/active">
+							树洞管理
+						</a>
+					</li>
+				</ul>
+				<ul>
+					<li>设置</li>
+					<li>
+						<a href="http://localhost:8000/b1/platform_management">
+							平台信息
+						</a>
+					</li>
+					<li>
+						<a href="http://localhost:8000/b1/user_management">
+							账户权限
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="contentRight">
+				<div class="right1">
+					<p style="font-size: 20px; font-weight: bold;">艺术品管理</p>
+					<p style="font-size: 18px;padding-left:15px;">艺术品详情:</p>
+				</div>
+				<div class="right2" style="height: auto;">
+					<p>编号:&nbsp;&nbsp;<%=result[0].id%></p>
+					<p>艺术品名:&nbsp;&nbsp;<%=result[0].aName%></p>
+					<p>价格:&nbsp;&nbsp;<%=result[0].aPrice2%></p>
+                    <p>内容介绍:&nbsp;&nbsp;<%=result[0].aContent%></p>
+                    <%if(result[0].state == '上架'){%>
+                        <p style="color: blue;"><span style="color: black;">状态:</span>&nbsp;&nbsp;<%=result[0].state%></p>
+                    <%}else{%>
+                        <p style="color: red;"><span style="color: black;">状态:</span>&nbsp;&nbsp;<%=result[0].state%></p>
+                    <%}%>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+
+</html>
